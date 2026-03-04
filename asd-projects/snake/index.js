@@ -104,12 +104,12 @@ if (activeKey === KEY.RIGHT) {
 if (activeKey === KEY.UP) {
   snake.head.direction = "up";
 }
-if (activeKey === KEY.DOWN) {
+if (activeKey === KEY.) {
   snake.head.direction = "down";
 }
   // FILL IN THE REST
 
-  // console.log(snake.head.direction);     //
+  // console.log(snake.head.direction);     // uncomment me!
 }
 
 function moveSnake() {
