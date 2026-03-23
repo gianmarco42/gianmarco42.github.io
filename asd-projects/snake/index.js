@@ -98,13 +98,13 @@ function checkForNewDirection(event) {
 if (activeKey === KEY.LEFT) {
   snake.head.direction = "left";
 }
-if (activeKey === KEY.RIGHT) {
+else if (activeKey === KEY.RIGHT) {
   snake.head.direction = "right";
 }
-if (activeKey === KEY.UP) {
+else if (activeKey === KEY.UP) {
   snake.head.direction = "up";
 }
-if (activeKey === KEY.) {
+else if (activeKey === KEY.DOWN) {
   snake.head.direction = "down";
 }
   // FILL IN THE REST
@@ -121,9 +121,14 @@ function moveSnake() {
     stored in the Array snake.body and each part knows its current 
     column/row properties. 
   */
+for ( var i = snake.body.length -1; i > 0; i --/* start, stop, and update statements to loop backwards through the indexes of snake.body */ ) {
+    var currentSnakeSquare = snake.body[i];
+    var snakeSquareInFront = snake.body[i - 1];
 
+    moveBodyAToBodyB(currentSnakeSquare, snakeSquareInFront);
 
-
+    repositionSquare(currentSnakeSquare);
+}
 
 
   //Before moving the head, check for a new direction from the keyboard input
@@ -135,17 +140,32 @@ function moveSnake() {
     HINT: The snake's head will need to move forward 1 square based on the value
     of snake.head.direction which may be one of "left", "right", "up", or "down"
   */
-
-
-
-
+if (snake.head.direction === "left") {
+  snake.head.column = snake.head.column - 1;
+}
+else if (snake.head.direction === "right") {
+  snake.head.column = snake.head.column + 1;
+}
+else if (snake.head.direction === "up") {
+  snake.head.row = snake.head.row - 1;
+}
+else if (snake.head.direction === "down") {
+  snake.head.row = snake.head.row + 1;
+}
+repositionSquare(snake.head);
 }
 
 // TODO 9: Create a new helper function
-
-
-
-
+function moveBodyAToBodyB(BodyA, BodyB) {
+  BodyA.row = BodyB.row;
+  BodyA.column = BodyB.column;
+  BodyA.direction = BodyB.direction;
+}
+//console.log("Moving body A to body B...");
+//setTimeout(() => {
+//  moveBodyAToBodyB(snake.body[1], snake.head);
+//  repositionSquare(snake.body[1]);
+//}, 2_000);
 
 function hasHitWall() {
   /* 
