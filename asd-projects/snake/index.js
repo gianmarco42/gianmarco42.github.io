@@ -185,13 +185,13 @@ if(snake.head.row >= ROWS) {
 if (snake.head.column < 0) {
   return true;
 }
-if(snake.head.column >= COLUMNS){
+if(snake.head.column >= COLUMNS) {
   return true;
 }
-else
+else {
   return false;
 }
-
+}
 
 function hasCollidedWithApple() {
   /* 
