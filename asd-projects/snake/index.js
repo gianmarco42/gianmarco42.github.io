@@ -167,18 +167,31 @@ function moveBodyAToBodyB(BodyA, BodyB) {
 //  repositionSquare(snake.body[1]);
 //}, 2_000);
 
-function hasHitWall() {
+function hasHitWall() 
   /* 
     TODO 11: Should return true if the snake's head has collided with the four walls of the
     board, false otherwise.
     
     HINT: What will the row and column of the snake's head be if this were the case?
   */
-
-
-
+   
+}
+if(snake.head.row < 0) {
+  return true;
+}
+if(snake.head.row >= ROWS) {
+  return true;
+}
+if (snake.head.column < 0) {
+  return true;
+}
+if(snake.head.column >= COLUMNS){
+  return true;
+}
+else{
   return false;
 }
+
 
 function hasCollidedWithApple() {
   /* 
