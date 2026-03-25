@@ -229,12 +229,12 @@ function hasCollidedWithSnake() {
     HINT: Each part of the snake's body is stored in the snake.body Array. The
     head and each part of the snake's body also knows its own row and column.
   */
-for(var i = 1; i < snake.length; i++) {
+for(var i = 1; i < snake.body.length; i++) {
   var currentSquare = snake.body[i];
   if(currentSquare.row === snake.head.row && currentSquare.column === snake.head.column){
     return true;
   } else {
-}
+  }
   return false;
 }
 }
