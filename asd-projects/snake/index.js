@@ -233,8 +233,7 @@ for(var i = 1; i < snake.body.length; i++) {
   var currentSquare = snake.body[i];
   if(currentSquare.row === snake.head.row && currentSquare.column === snake.head.column){
     return true;
-  } else {
-  }
+  } else 
   return false;
 }
 }
