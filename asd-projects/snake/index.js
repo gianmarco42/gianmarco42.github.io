@@ -200,12 +200,12 @@ function hasCollidedWithApple() {
     
     HINT: Both the apple and the snake's head are aware of their own row and column
   */
-
-
-
+if(snake.head.row === apple.row && snake.head.column === apple.column) {
+  return true;
+} else {
   return false;
 }
-
+}
 function handleAppleCollision() {
   // increase the score and update the score DOM element
   score++;
@@ -229,12 +229,15 @@ function hasCollidedWithSnake() {
     HINT: Each part of the snake's body is stored in the snake.body Array. The
     head and each part of the snake's body also knows its own row and column.
   */
-
-
-
+for(var i = 1; i < snake.length; i++) {
+  var currentSquare = snake.body[i];
+  if(currentSquare.row === snake.head.row && currentSquare.column === snake.head.column){
+    return true;
+  } else {
+}
   return false;
 }
-
+}
 function endGame() {
   // stop update function from running
   clearInterval(updateInterval);
