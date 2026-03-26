@@ -88,7 +88,7 @@ if (hasCollidedWithApple()) {
 
 }
 
-function checkForNewDirection(event) {
+function checkForNewDirection() {
   /* 
   TODO 7: Update snake.head.direction based on the value of activeKey.
   
@@ -231,11 +231,12 @@ function hasCollidedWithSnake() {
   */
 for(var i = 1; i < snake.body.length; i++) {
   var currentSquare = snake.body[i];
-  if(currentSquare.row === snake.head.row && currentSquare.column === snake.head.column){
+  if(currentSquare.row === snake.head.row && currentSquare.column === snake.head.column)
+  {
     return true;
-  } else 
-  return false;
+  }
 }
+return false;
 }
 function endGame() {
   // stop update function from running
@@ -365,7 +366,15 @@ function getRandomAvailablePosition() {
       not occupied by a snakeSquare in the snake's body. If it is then set 
       spaceIsAvailable to false so that a new position is generated.
     */
-
+for (var i = 0; i < snake.body.length; i++) {
+  var snakePart = snake.body[i];
+  if (
+    snakePart.column === randomPosition.column &&
+    snakePart.row === randomPosition.row
+  ) {
+    spaceIsAvailable = false;
+  }
+}
 
 
   }
